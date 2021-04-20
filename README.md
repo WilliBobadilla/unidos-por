@@ -46,19 +46,49 @@ source env/bin/activate
 pip3 install -r requirements.txt
 ```
 
-6. Correr las migraciones de la db
+6. Crear un archivo en la raiz del proyecto llamado .env y agregar las siguientes
+   variables con sus datos correspondientes
+
+```bash
+SECRET_KEY='algunaclavesecretageneradapornostros'
+GOOGLE_MAPS_API_KEY='api key de google sacado de la consola de google'
+
+```
+
+7. Crear el archivo local*settings.py en la carpeta \_Proyecto* con el siguiente contenido:
+
+```bash
+import os
+from settings import BASE_DIR
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    }
+}
+
+```
+
+8. Correr las migraciones de la db
 
 ```bash
 python manage.py migrate
 ```
 
-## Contribuciones
+9. Correr el server local
+
+```bash
+python manage.py runserver
+```
+
+## Contribuciones :raised_hands:
 
 [Gilda Rey](https://github.com/gildarey/) - Trabajo inicial
 
 ## Versiones
 
-## Autores
+## Autores :woman: :man:
 
 [Gilda Rey](https://github.com/gildarey/) - Trabajo inicial
 
